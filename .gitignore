@@ -1,0 +1,6 @@
+*.slxc
+/matlab_sim/resources/
+/matlab_sim/slprj/
+/matlab_sim/models/SwingUp/slprj
+/matlab_sim/models/Balance/slprj
+/matlab_sim/models/Test/slprj
