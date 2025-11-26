@@ -25,29 +25,23 @@ In this project, I use the Soft-Actor-Critic (SAC) reinforcement learning to sta
 ## Project Structure
 
 ```
-rotary-pendulum-sac-simscape/
-├── docs/                           # Project documentation
-│   ├── datasheets/                 # Hardware datasheets
-│   └── report.docx                 # Final project report
-├── embedded_firmware/              # Firmware for embedded systems
-│   └── multi_agents                # Multi-agent firmware logic
-├── hardware_design/                # Mechanical design files
-│   └── Solidwork_CAD               # SolidWorks CAD models
-├── matlab_sim/                     # MATLAB/Simulink simulations
-│   ├── cad                         # CAD integration
-│   ├── common                      # Common simulation utilities
-│   ├── models                      # Simulink models (.slx)
-│   ├── scripts                     # MATLAB scripts for sim & training
-│   └── InvertedPendulum.prj        # MATLAB project file
-├── python_rl/                      # Python RL implementation
-│   ├── agent.py                    # SAC agent implementation
-│   ├── env.py                      # RL environment interface
-│   ├── policy_tensor_b.py          # Policy for balance task
-│   ├── policy_tensor_su.py         # Policy for swing-up task
-│   ├── utils.py                    # Utility functions
-│   ├── forward.ipynb               # Model inference notebook
-│   └── train.ipynb                 # Training notebook
-└── README.md                       # Project overview and usage guide
+rotary-pendulum-matlab/
+├── matlab/
+│   ├── agents/              # SAC agent configurations
+│   ├── config/              # System parameters
+│   ├── environment/         # RL environments
+│   ├── scripts/
+│   │   ├── training/        # Training scripts
+│   │   ├── evaluation/      # Testing utilities
+│   │   └── export/          # Weight export tools
+│   ├── simulink/
+│   │   ├── physics/         # Physics models
+│   │   └── evaluation/      # Test models
+│   └── trained_models/      # Saved checkpoints
+├── python/                  # Python deployment interface
+├── embedded/                # ESP32 firmware
+├── hardware/                # Hardware documentation
+└── docs/                    # Project documentation
 ```
 
 ## Requirements
@@ -86,14 +80,14 @@ Third, to enable real-time reinforcement learning on hardware, I use Python as a
 ## Results
 ### Swing-up Controller
 <p align="center">
-  <img src="matlab_sim/models/SwingUp/result_su.png" alt="Swing-up Reward" width="500"/>
+  <img src="matlab/results/figures/training_curves_swingup.png" alt="Swing-up Reward" width="500"/>
 </p>
 The swing-up controller learned to bring the pendulum from rest to upright in about 2 seconds on average.  
 Average return: +250
 
 ### Balance Controller
 <p align="center">
-  <img src="matlab_sim/models/Balance/result_b.png" alt="Balance Training Reward" width="500"/>
+  <img src="matlab/results/figures/training_curves_balance.png" alt="Balance Training Reward" width="500"/>
 </p>
 The balance controller was trained for 400 epochs and successfully maintains the upright position with minimal oscillation although small white noise added.  
 Average return: +312
@@ -102,7 +96,7 @@ Average return: +312
 
 ### Demo Videos
 <p align="center">
-  <img src="matlab_sim/models/Test/Gif_rlSAC_Test.gif" alt="Demo video" width="500"/>
+  <img src="matlab/results/videos/demo.gif" alt="Demo video" width="500"/>
 </p>
 
 

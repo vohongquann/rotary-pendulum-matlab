@@ -1,6 +1,29 @@
+# Simulink cache
 *.slxc
-/matlab_sim/resources/
-/matlab_sim/slprj/
-/matlab_sim/models/SwingUp/slprj
-/matlab_sim/models/Balance/slprj
-/matlab_sim/models/Test/slprj
+
+# Simulink autosave
+*.autosave
+*.asv
+
+# Model Reference build folders
+slprj/
+**/slprj/
+
+# MATLAB Project metadata (optional)
+resources/
+
+# Code generation artifacts
+codegen/
+work/
+
+# Backup files
+*.bak
+*.old
+*~
+
+# Temp
+*.mex*
+*.log
+*.mexa64
+*.mem
+*.mat.save
